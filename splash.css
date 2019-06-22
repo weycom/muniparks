@@ -222,8 +222,8 @@ button.primary, .button.primary {
   100% {
     opacity: 1; } }
 .future {
-  -webkit-animation: 4s ease 0s normal forwards 1 future;
-  animation: 4s ease 0s normal forwards 1 future; }
+  -webkit-animation: 3s ease 0s normal forwards 1 future;
+  animation: 3s ease 0s normal forwards 1 future; }
   .future a {
     color: #0000FF; }
 
