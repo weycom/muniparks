@@ -128,6 +128,7 @@ input[type = "submit"] {
     color: #000;
     border: solid 1px #ccc;
     border-radius: 4px;
+    -webkit-appearance: none;
 }
 button.primary {
     display: inline-block;
