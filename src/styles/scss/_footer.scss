@@ -1,0 +1,60 @@
+// footer
+footer {
+    border-top: solid 1px #ccc;
+    margin: 0 0.9375rem;
+    .footer-contents {
+        padding: 2rem 0;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+	p {
+		font-size: 14px;
+	}
+    ul {
+        margin: 0 0 1.5rem 0;
+       /* column-count: 2; */
+        padding: 0;
+        list-style-type: none;
+        li {
+            display: inline-block;
+            margin-right: 1rem;
+        }
+    }
+}
+// fixed footer styling
+// via http://stackoverflow.com/questions/18739937/how-to-keep-footer-at-bottom-of-screen
+* {
+    margin:0;
+    padding:0;} 
+html, body {
+    height: 100%;
+}
+#wrap {
+    min-height: 100%;}
+#footer {
+    clear:both;
+    height: 90px;
+    position: relative;
+    /* margin-top: -90px; negative value of footer height */
+} 
+/*Opera Fix thanks to Maleika (Kohoutec)*/
+body:before {
+    content:"";
+    float:left;
+    height:100%;
+    margin-top:-32767px;/* thank you Erik J - negate effect of float*/
+    width:0;
+}
+// full-width element
+.full-width {
+    width: 100%;
+    max-width: none;
+}
+
+// medium screen size up
+@media (min-width: 600px ) {
+    footer {
+        margin: 0 auto;
+        padding: 1rem;
+    }
+}

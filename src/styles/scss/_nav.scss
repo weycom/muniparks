@@ -1,0 +1,319 @@
+// logo
+.logo {
+	display: block;
+	padding: 1rem;
+	font-size: 1rem;
+	img {
+		height: 20px;
+	}
+	font-size: 1rem;
+	font-weight: 100;
+	border: none;
+	color: #000;
+	text-transform: uppercase;
+	&:hover {
+		text-decoration: none;
+	}
+}
+.btn-open:after {
+	color:#333;
+	content:"\f0c9";
+	font-family:"FontAwesome";
+	transition-property:all .2s linear 0s;
+	-moz-transition:all .2s linear 0s;
+	-webkit-transition:all .2s linear 0s;
+	-o-transition:all .2s linear 0s;
+}
+.btn-open:hover:after {
+	color:#34B484;
+}
+/*overlay*/
+.overlay {
+	display:none;
+	position:fixed;
+	top:0;
+	height:100%;
+	width:100%;
+	background:#333;
+	overflow:auto;
+	z-index:99;
+}
+.wrap {
+	color:#e9e9e9;
+	text-align:center;
+	max-width:90%;
+	margin:0 auto;
+}
+.wrap ul.wrap-nav {
+	border-bottom:1px solid #575757;
+	text-transform:capitalize;
+	padding:150px 0px 100px;
+}
+.wrap ul.wrap-nav li {
+	font-size:20px;
+	display:inline-block;
+	vertical-align:top;
+	width:24%;
+	position:relative;
+}
+.wrap ul.wrap-nav li a {
+	color:#34B484;
+	display:block;
+	padding:8px 0;
+	text-decoration:none;
+	transition-property:all .2s linear 0s;
+	-moz-transition:all .2s linear 0s;
+	-webkit-transition:all .2s linear 0s;
+	-o-transition:all .2s linear 0s;
+}
+.wrap ul.wrap-nav li a:hover {
+	color:#f0f0f0;
+}
+.wrap ul.wrap-nav ul {
+	padding:20px 0;
+}
+.wrap ul.wrap-nav ul li {
+	display:block;
+	font-size:13px;
+	width:100%;
+	color:#e9e9e9;
+}
+.wrap ul.wrap-nav ul li a {
+	color:#f0f0f0;
+}
+.wrap ul.wrap-nav ul li a:hover {
+	color:#34B484;
+}
+.fa-remove:before, .fa-close:before, .fa-times:before {
+	color: #000;
+	content:"x";
+	font-size: 1.675rem;
+	transition-property:all .2s linear 0s;
+	-moz-transition:all .2s linear 0s;
+	-webkit-transition:all .2s linear 0s;
+	-o-transition:all .2s linear 0s;
+}
+.btn-close:hover:after {
+	color: #34B484;
+}
+
+/* Screen reader only */
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0,0,0,0);
+	border: 0;
+}
+
+/* Button styling */
+.menu-toggle {
+	display: inline-block;
+	padding: 1rem;
+	line-height: 1em;
+	font-size: 1.5rem;
+	color: #333;
+	cursor: pointer;
+	float: right;
+}
+
+.menu-toggle:hover,
+#main-menu-checkbox:focus ~ header .menu-toggle {
+ 	outline: none;
+}
+
+#main-menu-checkbox {
+ 	position: absolute;
+ 	left: -100vw; /* get it off the screen */
+}
+
+.fa-navicon:before, .fa-reorder:before, .fa-bars:before {
+    content: "☰";
+}
+/*
+ Default styles + Mobile first
+ Offscreen menu style
+*/
+.main-menu {
+	position: absolute;
+	left: -300px;
+	top: 0;
+	height: 100%;
+	overflow-y: scroll;
+	overflow-x: visible;
+	transition: left 0.3s ease,
+  	box-shadow 0.3s ease;
+	z-index: 999;
+}
+.main-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 2.5em 0 0;
+  min-height: 100%;
+  width: 300px;
+}
+.main-menu a,
+.main-menu .menu-close {
+  display: block;
+  padding: 1rem;
+  line-height: 1em;
+  font-size: 1em;
+  text-decoration: none;
+}
+
+.main-menu a:hover,
+.main-menu a:focus,
+.main-menu .menu-close:hover,
+#main-menu-checkbox:focus ~ header .menu-close {
+  text-decoration: none;
+}
+
+.main-menu .menu-close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+}
+
+/*
+ On small devices, allow it to toggle...
+*/
+/*
+ :target for non-JavaScript
+ aria-expanded="true/false" will be for JavaScript
+*/
+#main-menu-checkbox:checked ~ header .main-menu,
+.main-menu[aria-expanded="true"] {
+	background: #fff;
+	left: 0;
+	outline: none;
+	-moz-box-shadow: 3px 0 12px rgba(0,0,0,.25);
+	-webkit-box-shadow: 3px 0 12px rgba(0,0,0,.25);
+	box-shadow: 3px 0 12px rgba(0,0,0,.25);
+	.logo svg {
+		fill: #000;
+	}
+}
+
+#main-menu-checkbox:checked ~ header .menu-close,
+.main-menu[aria-expanded="true"] .menu-close {
+  z-index: 1001;
+}
+
+#main-menu-checkbox:checked ~ header .main-menu ul,
+.main-menu[aria-expanded="true"] ul {
+  position: relative;
+  z-index: 1000;
+}
+
+/* 
+ We could us `.main-menu:target:after`, but
+ it wouldn't be clickable.
+*/
+#main-menu-checkbox:checked ~ header .backdrop,
+.main-menu[aria-expanded="true"] + .backdrop {
+  position: absolute;
+  display: block;  
+  content: "";
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 998;
+  background: #000;
+  background: rgba(0,0,0,.85);
+  cursor: default;
+}
+
+@supports (position: fixed) {
+  .main-menu,
+  #main-menu-checkbox:checked ~ header .backdrop,
+  .main-menu[aria-expanded="true"] + .backdrop {
+    position: fixed;
+  }
+}
+
+/*
+ Larger screen styling
+ Horizontal menu
+*/
+.fa-close::before {
+	color: #fff;
+}
+.cover-image {
+	.fa-navicon:before, .fa-reorder:before, .fa-bars:before {
+	    content: "☰";
+	    color: #fff;
+	}
+}
+
+@media (min-width: 600px ) {
+	.logo.hide-desktop {
+		display: none;
+	}
+	// logo
+	a.logo {
+		display: inline-block;
+		padding: 0;
+	}
+	.menu-toggle,
+	.main-menu .menu-close,
+	#main-menu-checkbox {
+    	display: none;
+  	}
+  
+  	.cover-image {
+		.main-menu ul {
+			li {
+				a {
+					color: #fff;
+				}
+			}
+		}
+
+  	}
+  	/* Undo positioning of off-canvas menu */
+  	.main-menu {
+  		background: rgba(255, 255, 255, 0.9);
+  		box-sizing: border-box;
+    	position: fixed;
+		left: auto;
+		top: auto;
+		height: auto;
+		width: 100%;
+    	overflow-y: auto; /* fix dumb MS Edge scrollbar issue */
+  		padding: 1rem 1rem .5rem 1rem;
+  	}
+  	.main-menu ul {
+  		display: flex;
+		margin-top: 0rem;
+		float: right;
+		li {
+			display: inline-block;
+			margin: 0 .875rem;
+			a {
+				font-weight: 600;
+				font-size: 1rem;
+				padding: 0;
+				border: none;
+				&.current {
+					color: #3300FF;
+				}
+			}
+		}
+	    /* Undo off-canvas styling */
+	    padding: 0;
+	    -webkit-box-shadow: none;
+       	-moz-box-shadow: none;
+        box-shadow: none;
+	    height: auto;
+	    width: auto;
+	    background: none;
+  	}
+}
+.header {
+	display: block;
+}
