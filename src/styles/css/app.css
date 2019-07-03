@@ -729,7 +729,7 @@ body {
 }*/
 p, li, blockquote {
   color: #44464f;
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: 400;
   line-height: 1.8; }
   p a, li a, blockquote a {
@@ -761,7 +761,7 @@ a {
 
 button.primary, .button.primary {
   display: inline-block;
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: bold;
   background: #7700cf;
   color: #fff;
@@ -774,7 +774,7 @@ button.primary, .button.primary {
     cursor: pointer; }
 
 .page-description-citation {
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-style: normal; }
   .page-description-citation a {
     font-style: italic; }
@@ -786,7 +786,7 @@ h1 {
 
 h2, h3, h4 {
   font-weight: 600;
-  font-size: 1.25rem;
+  font-size: 1.375rem;
   line-height: 1.5;
   margin: 3rem 0 1.5rem 0; }
 
@@ -799,11 +799,11 @@ ul, ol {
     list-style: none;
     margin: 1rem 0 0 0; }
     .footnotes ul li {
-      font-size: 1rem;
+      font-size: 1.125rem;
       margin-left: 0; }
 
 code {
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-family: Courier, monospace;
   display: block;
   color: #555555;
@@ -827,7 +827,7 @@ th, td {
   padding: 1rem 0; }
 
 table {
-  font-size: 1rem;
+  font-size: 1.125rem;
   width: 100%;
   overflow-x: auto;
   /* Scrollbar is displayed as it's needed */
@@ -843,7 +843,7 @@ table {
       text-transform: none;
       margin-top: .5rem;
       display: block;
-      font-size: 1rem;
+      font-size: 1.125rem;
       font-weight: 100; }
 
 .table-striped > tbody > tr:nth-child(odd) > td,
@@ -1071,12 +1071,12 @@ blockquote {
     display: inline-block;
     font-family: proxima nova;
     font-weight: bold;
-    font-size: 1rem; }
+    font-size: 1.125rem; }
   .article .byline {
     padding: 0 0 2rem 0;
     display: block;
     line-height: 1.5;
-    font-size: 1rem;
+    font-size: 1.125rem;
     font-weight: bold; }
   .article h2, .article h3, .article h4 {
     font-family: Meta Serif Pro;
@@ -1090,7 +1090,7 @@ blockquote {
   .article .label {
     display: block; }
   .article .label--soft {
-    font-size: 1rem;
+    font-size: 1.125rem;
     text-transform: uppercase; }
   .article .sources {
     list-style-type: none;
