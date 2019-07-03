@@ -681,7 +681,7 @@ body {
   overflow: inherit; }
 
 .cover-image header {
-  positive: relative;
+  position: relative;
   z-index: 1; }
 .cover-image nav {
   background: none; }
