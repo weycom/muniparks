@@ -680,6 +680,9 @@ body {
   fill: #000;
   overflow: inherit; }
 
+.cover-image header {
+  positive: relative;
+  z-index: 1; }
 .cover-image nav {
   background: none; }
 .cover-image #wrap {

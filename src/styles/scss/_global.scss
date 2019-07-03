@@ -23,6 +23,10 @@ body {
 	overflow: inherit;
 }
 .cover-image {
+	header {
+		positive: relative;
+		z-index: 1;
+	}
 	nav {
 		background: none;
 	}
