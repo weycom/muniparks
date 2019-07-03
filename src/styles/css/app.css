@@ -1366,8 +1366,7 @@ main {
   font-size: 1rem;
   font-weight: 100;
   border: none;
-  color: #000;
-  text-transform: uppercase; }
+  color: #000; }
   .logo img {
     height: 20px; }
   .logo:hover {
@@ -1376,7 +1375,6 @@ main {
 .btn-open:after {
   color: #333;
   content: "\f0c9";
-  font-family: "FontAwesome";
   transition-property: all .2s linear 0s;
   -moz-transition: all .2s linear 0s;
   -webkit-transition: all .2s linear 0s;
