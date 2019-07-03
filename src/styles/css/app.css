@@ -1584,7 +1584,7 @@ main {
  Horizontal menu
 */
 .fa-close::before {
-  color: #fff; }
+  color: #000; }
 
 .cover-image .fa-navicon:before, .cover-image .fa-reorder:before, .cover-image .fa-bars:before {
   content: "☰";
