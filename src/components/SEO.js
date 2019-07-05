@@ -4,6 +4,7 @@ import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
 import * as config from '../config';
 
+
 const getSchemaOrgJSONLD = ({
   isBlogPost,
   url,
@@ -26,7 +27,7 @@ const getSchemaOrgJSONLD = ({
     ? [
         ...schemaOrgJSONLD,
         {
-          '@context': 'https://khalilstemmler.com',
+          '@context': 'https://muniparks.com',
           '@type': 'BreadcrumbList',
           itemListElement: [
             {
@@ -41,7 +42,7 @@ const getSchemaOrgJSONLD = ({
           ],
         },
         {
-          '@context': 'https://khalilstemmler.com',
+          '@context': 'https://muniparks.com',
           '@type': 'BlogPosting',
           url,
           name: title,
@@ -54,13 +55,13 @@ const getSchemaOrgJSONLD = ({
           description,
           author: {
             '@type': 'Person',
-            name: 'Khalil Stemmler',
+            name: 'Muniparks',
           },
           publisher: {
             '@type': 'Organization',
-            url: 'https://khalilstemmler.com',
+            url: 'https://muniparks.com',
             logo: config.logo,
-            name: 'Khalil Stemmler',
+            name: 'Muniparks',
           },
           mainEntityOfPage: {
             '@type': 'WebSite',
@@ -128,6 +129,7 @@ SEO.propTypes = {
     frontmatter: PropTypes.any,
     excerpt: PropTypes.any,
   }).isRequired,
+  image: PropTypes.string,
   postImage: PropTypes.string,
 };
 

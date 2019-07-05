@@ -6,11 +6,6 @@ import logo from '../img/muniparks-logo-white.svg'
 import Layout from '../components/Layout'
 import Helmet from 'react-helmet'
 
-/* 
-import { Link, graphql } from 'gatsby'
-import Features from '../components/Features'
-import BlogRoll from '../components/BlogRoll' */
-
 export const IndexPageTemplate = ({
   image,
   title,

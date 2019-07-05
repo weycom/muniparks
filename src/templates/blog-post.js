@@ -1,11 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { kebabCase } from 'lodash'
 import Helmet from 'react-helmet'
 import { graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
-import SEO from '../components/SEO'
+import SEO from '../components/SEO';
 
 export const BlogPostTemplate = ({
     content,
@@ -75,10 +74,11 @@ const BlogPost = ({ data }) => {
             description={post.description}
             helmet={
                 <SEO
-                isBlogPost={true}
+                    isBlogPost={true}
                     postData={post}
                     postImage={post.image}
-                />}
+                />
+            }
             tags={post.tags}
             title={post.title}
             date={post.date}
@@ -111,9 +111,12 @@ export const pageQuery = graphql`
         description
         tags
         image {
-          childImageSharp {
-            fluid(maxWidth: 1000, quality: 100) {
+          childImageSharp{
+            fluid(maxWidth: 1500) {
               ...GatsbyImageSharpFluid
+            }
+            resize(width: 900, quality: 90) {
+              src
             }
           }
         }
