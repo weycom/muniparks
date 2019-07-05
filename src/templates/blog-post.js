@@ -73,14 +73,14 @@ const BlogPost = ({ data }) => {
                 <SEO
                 isBlogPost={true}
                     postData={post}
-                    postImage={post.image}
+                    postImage={post.frontmatter.image}
                 />}
-            tags={post.tags}
-            title={post.title}
-            date={post.date}
-            image={post.image}
-            label={post.label}
-            author={post.author}
+            tags={post.frontmatter.tags}
+            title={post.frontmatter.title}
+            date={post.frontmatter.date}
+            image={post.frontmatter.image}
+            label={post.frontmatter.label}
+            author={post.frontmatter.author}
         />
     )
 }
