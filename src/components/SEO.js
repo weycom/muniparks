@@ -5,14 +5,14 @@ import PropTypes from 'prop-types';
 import * as config from '../config';
 
 const getSchemaOrgJSONLD = ({
-    isBlogPost,
-    url,
-    title,
-    image,
-    description,
-    datePublished,
+  isBlogPost,
+  url,
+  title,
+  image,
+  description,
+  datePublished,
 }) => {
-    const schemaOrgJSONLD = [
+  const schemaOrgJSONLD = [
     {
       '@context': 'http://schema.org',
       '@type': 'WebSite',
@@ -20,13 +20,13 @@ const getSchemaOrgJSONLD = ({
       name: title,
       alternateName: config.title,
     },
-    ];
+  ];
 
   return isBlogPost
     ? [
         ...schemaOrgJSONLD,
         {
-          '@context': 'https://muniparks.com',
+          '@context': 'https://khalilstemmler.com',
           '@type': 'BreadcrumbList',
           itemListElement: [
             {
@@ -41,7 +41,7 @@ const getSchemaOrgJSONLD = ({
           ],
         },
         {
-          '@context': 'https://muniparks.com',
+          '@context': 'https://khalilstemmler.com',
           '@type': 'BlogPosting',
           url,
           name: title,
@@ -54,12 +54,13 @@ const getSchemaOrgJSONLD = ({
           description,
           author: {
             '@type': 'Person',
-            name: 'Muniparks',
+            name: 'Khalil Stemmler',
           },
           publisher: {
             '@type': 'Organization',
-            url: 'https://muniparks.com',
-            name: 'Muniparks',
+            url: 'https://khalilstemmler.com',
+            logo: config.logo,
+            name: 'Khalil Stemmler',
           },
           mainEntityOfPage: {
             '@type': 'WebSite',
@@ -95,28 +96,28 @@ const SEO = ({ postData, postImage, isBlogPost }) => {
   
   return (
     <Helmet>
-        {/* General tags */}
-        <meta name="description" content={description} />
-        <meta name="image" content={image} />
+      {/* General tags */}
+      <meta name="description" content={description} />
+      <meta name="image" content={image} />
 
-        {/* Schema.org tags */}
-        <script type="application/ld+json">
+      {/* Schema.org tags */}
+      <script type="application/ld+json">
         {JSON.stringify(schemaOrgJSONLD)}
-        </script>
+      </script>
 
-        {/* OpenGraph tags */}
-        <meta property="og:url" content={url} />
-        {isBlogPost ? <meta property="og:type" content="article" /> : null}
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
-        <meta property="og:image" content={image} />
+      {/* OpenGraph tags */}
+      <meta property="og:url" content={url} />
+      {isBlogPost ? <meta property="og:type" content="article" /> : null}
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:image" content={image} />
 
-        {/* Twitter Card tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:creator" content={config.twitter} />
-        <meta name="twitter:title" content={title} />
-        <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content={image} />
+      {/* Twitter Card tags */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:creator" content={config.twitter} />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={image} />
     </Helmet>
   );
 };

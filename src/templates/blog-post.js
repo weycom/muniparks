@@ -56,15 +56,17 @@ export const BlogPostTemplate = ({
 }
 
 BlogPostTemplate.propTypes = {
-  content: PropTypes.node.isRequired,
-  contentComponent: PropTypes.func,
-  description: PropTypes.string,
-  title: PropTypes.string,
-  helmet: PropTypes.object,
+    content: PropTypes.string.isRequired,
+    contentComponent: PropTypes.func,
+    description: PropTypes.string,
+    title: PropTypes.string,
+    helmet: PropTypes.instanceOf(Helmet),
 }
 
 const BlogPost = ({ data }) => {
-    const { markdownRemark: post } = data
+     let { markdownRemark: post } = data;
+
+    post = Object.assign({}, post, post.fields, post.frontmatter)
 
     return (
         <BlogPostTemplate
@@ -75,14 +77,14 @@ const BlogPost = ({ data }) => {
                 <SEO
                 isBlogPost={true}
                     postData={post}
-                    postImage={post.frontmatter.image}
+                    postImage={post.image}
                 />}
-            tags={post.frontmatter.tags}
-            title={post.frontmatter.title}
-            date={post.frontmatter.date}
-            image={post.frontmatter.image}
-            label={post.frontmatter.label}
-            author={post.frontmatter.author}
+            tags={post.tags}
+            title={post.title}
+            date={post.date}
+            image={post.image}
+            label={post.label}
+            author={post.author}
         />
     )
 }
