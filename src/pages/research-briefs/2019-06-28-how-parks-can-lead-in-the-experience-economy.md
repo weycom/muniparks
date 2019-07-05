@@ -57,8 +57,8 @@ Learn from your peers! Start or join the conversation about parks and the experi
 	        <img src="https://www.google.com/s2/favicons?domain=https://hbr.org">
 	        <span>HBR</span>
 	    </span>
-	    <a href="https://hbr.org/1998/07/welcome-to-the-experience-economy">
-	    Welcome to the Experience Economy</a><img src="/img/offsite_black.png" class="off-site-link" alt="offsite link">
+	    &ldquo;<a href="https://hbr.org/1998/07/welcome-to-the-experience-economy">
+	    Welcome to the Experience Economy</a>&rdquo;<img src="/img/offsite_black.png" class="off-site-link" alt="offsite link">
 	</li>
 	<li>
 	    <span class="label label--soft">
