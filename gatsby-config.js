@@ -4,6 +4,8 @@ module.exports = {
     siteMetadata: {
         title: 'Muniparks',
         description:'Join the community building the future of US parks and recreation.',
+        twitter: 'https://twitter.com/muniparks',
+        url: 'https://muniparks.com',
   },
   plugins: [
     'gatsby-plugin-react-helmet',

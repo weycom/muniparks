@@ -5,6 +5,7 @@ import Helmet from 'react-helmet'
 import { graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
+import SEO from '../components/SEO'
 
 export const BlogPostTemplate = ({
     content,
@@ -12,10 +13,11 @@ export const BlogPostTemplate = ({
     description,
     tags,
     title,
-    label,
-    author,
+    helmet,
     date,
-    helmet
+    image,
+    label,
+    author
 }) => {
     const PostContent = contentComponent || Content
 
@@ -64,26 +66,23 @@ const BlogPost = ({ data }) => {
 
   return (
     <Layout>
-      <BlogPostTemplate
-        content={post.html}
-        contentComponent={HTMLContent}
-        description={post.frontmatter.description}
-        label={post.frontmatter.label}
-        date={post.frontmatter.date}
-        author={post.frontmatter.author}
-        authorimage={post.frontmatter.authorimage}
-        helmet={
-          <Helmet titleTemplate="%s | Blog">
-            <title>{`${post.frontmatter.title}`}</title>
-            <meta
-              name="description"
-              content={`${post.frontmatter.description}`}
-            />
-          </Helmet>
-        }
-        tags={post.frontmatter.tags}
-        title={post.frontmatter.title}
-      />
+        <BlogPostTemplate
+            content={post.html}
+            contentComponent={HTMLContent}
+            description={post.description}
+            helmet={
+                <SEO
+                isBlogPost={true}
+                    postData={post}
+                    postImage={post.image}
+                />}
+            tags={post.tags}
+            title={post.title}
+            date={post.date}
+            image={post.image}
+            label={post.label}
+            author={post.author}
+        />
     </Layout>
   )
 }
@@ -104,9 +103,10 @@ export const pageQuery = graphql`
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title
-        label
         description
+        label
         tags
+        image
         author
       }
     }
