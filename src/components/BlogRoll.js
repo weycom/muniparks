@@ -30,12 +30,12 @@ class BlogRoll extends React.Component {
                         </Link>
                         </p>
                     </figcaption>
-                    {post.frontmatter.featuredimage ? (
+                    {post.frontmatter.image ? (
                     <figure>
                         <Link to={post.fields.slug}>
                         <PreviewCompatibleImage
                         imageInfo={{
-                            image: post.frontmatter.featuredimage,
+                            image: post.frontmatter.image,
                             alt: `featured image thumbnail for post ${
                                 post.title
                             }`,
@@ -78,7 +78,7 @@ export default () => (
                 templateKey
                 date(formatString: "MMMM DD, YYYY")
                 featuredpost
-                featuredimage {
+                image {
                   childImageSharp {
                     fluid(maxWidth: 1000, quality: 100) {
                       ...GatsbyImageSharpFluid

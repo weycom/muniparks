@@ -5,7 +5,7 @@ date: 2019-07-02T15:04:10.000Z
 author: Ryan McKnight
 label: "Research Brief"
 featuredpost: false
-featuredimage: /img/experience-economy.jpg
+image: /img/experience-economy.jpg
 description: Parks and rec pros have always been in the experience game, but now there’s a lot more competition.
 tags:
   - experience-economy

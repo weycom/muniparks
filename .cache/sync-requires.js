@@ -5,8 +5,8 @@ const preferDefault = m => m && m.default || m
 
 
 exports.components = {
-  "component---src-templates-index-page-js": hot(preferDefault(require("/Users/mcknight/Documents/sites/muniparks/src/templates/index-page.js"))),
   "component---src-templates-about-page-js": hot(preferDefault(require("/Users/mcknight/Documents/sites/muniparks/src/templates/about-page.js"))),
+  "component---src-templates-index-page-js": hot(preferDefault(require("/Users/mcknight/Documents/sites/muniparks/src/templates/index-page.js"))),
   "component---src-templates-merch-page-js": hot(preferDefault(require("/Users/mcknight/Documents/sites/muniparks/src/templates/merch-page.js"))),
   "component---src-templates-online-courses-page-js": hot(preferDefault(require("/Users/mcknight/Documents/sites/muniparks/src/templates/online-courses-page.js"))),
   "component---src-templates-blog-post-js": hot(preferDefault(require("/Users/mcknight/Documents/sites/muniparks/src/templates/blog-post.js"))),

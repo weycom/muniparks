@@ -2,7 +2,7 @@ import path from 'path';
 import React from 'react';
 import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
-import * as gatsby-config from '../gatsby-config';
+import * as config from '../config';
 
 const getSchemaOrgJSONLD = ({
     isBlogPost,
@@ -18,7 +18,7 @@ const getSchemaOrgJSONLD = ({
       '@type': 'WebSite',
       url,
       name: title,
-      alternateName: gatsby-config.title,
+      alternateName: config.title,
     },
     ];
 
@@ -45,7 +45,7 @@ const getSchemaOrgJSONLD = ({
           '@type': 'BlogPosting',
           url,
           name: title,
-          alternateName: gatsby-config.title,
+          alternateName: config.title,
           headline: title,
           image: {
             '@type': 'ImageObject',
@@ -63,7 +63,7 @@ const getSchemaOrgJSONLD = ({
           },
           mainEntityOfPage: {
             '@type': 'WebSite',
-            '@id': gatsby-gatsby-config.url,
+            '@id': config.url,
           },
           datePublished,
         },
@@ -74,14 +74,14 @@ const getSchemaOrgJSONLD = ({
 const SEO = ({ postData, postImage, isBlogPost }) => {
   const postMeta = postData || {};
 
-  const title = postMeta.title || gatsby-config.title;
+  const title = postMeta.title || config.title;
   const description =
-    postMeta.description || postData.excerpt || gatsby-config.description;
-  const image = `${gatsby-config.url}${postImage}` || gatsby-config.image;
+    postMeta.description || postData.excerpt || config.description;
+  const image = `${config.url}${postImage}` || config.image;
   const slug = postMeta.slug;
   const url = postMeta.slug
-    ? `${gatsby-config.url}${postMeta.slug}`
-    : gatsby-config.url;
+    ? `${config.url}${postMeta.slug}`
+    : config.url;
   const datePublished = isBlogPost ? postMeta.date : false;
 
   const schemaOrgJSONLD = getSchemaOrgJSONLD({
@@ -113,7 +113,7 @@ const SEO = ({ postData, postImage, isBlogPost }) => {
 
         {/* Twitter Card tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:creator" content={gatsby-config.twitter} />
+        <meta name="twitter:creator" content={config.twitter} />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={image} />
