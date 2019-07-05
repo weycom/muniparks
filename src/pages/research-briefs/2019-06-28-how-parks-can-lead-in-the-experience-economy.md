@@ -6,7 +6,7 @@ author: Ryan McKnight
 label: "Research Brief"
 featuredpost: false
 featuredimage: /img/experience-economy.jpg
-description: Parks and Rec pros have always been in the experience game, but now there’s a lot more competition.
+description: Parks and rec pros have always been in the experience game, but now there’s a lot more competition.
 tags:
   - experience-economy
   - marketing
@@ -21,14 +21,14 @@ tags:
 * It’s not just a spin class; it’s “a safe space to ride through whatever you're facing” (Soul Cycle). It’s not just a room for the night; it’s “unique homes and experiences that let travelers belong anywhere” (Airbnb).
 * The concept was first proposed in a <a href="https://hbr.org/1998/07/welcome-to-the-experience-economy">1998 Harvard Business Review article</a> by B. Joseph Pine II and James Gilmore – “An experience occurs when a company uses services as the stage – and goods as props – for engaging individuals in a way that creates a memorable event. And while experiences have always been at the heart of the entertainment business, any company stages an experience when it engages customers in a personal, memorable way.”
 
-## Why does it matter to Parks and Rec pros?
+## Why does it matter to parks and rec pros?
 
-* Parks and Rec pros have always been in the experience game, but now there’s a lot more competition! You need to innovate to capture value and stay relevant.
+* Parks and rec pros have always been in the experience game, but now there’s a lot more competition! You need to innovate to capture value and stay relevant.
 * New experience offerings can become new dedicated sources of park revenue. You can charge real money for great memories.
 * Experiences can attract and retain visitors.
 * Experiences can be cheaper to implement than building new park infrastructure.
 
-## How can Parks and Rec pros lead in the competitive experience economy?
+## How can parks and rec pros lead in the competitive experience economy?
 
 * Figure out what memories your visitors value.
 * Model your programming after popular consumer experience trends – e.g. “Yoga in the Park.”

@@ -10,7 +10,7 @@ export default class BlogIndexPage extends React.Component {
             <section className="grid page-header">
                 <div className="full-width">
                     <h1>Research Briefs</h1>
-                    <p>Insights and pragmatic solutions from Parks and Recreation research.</p>
+                    <p>Insights and pragmatic solutions from parks and recreation research.</p>
                 </div>
             </section>
             <BlogRoll />

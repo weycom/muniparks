@@ -17,7 +17,7 @@ tags:
 
 Start by assessing the experience of spaces that are often highly gendered – e.g. bathrooms, pools, showers and locker rooms. These spaces are where transgender visitors are likely to feel the most uncomfortable. Prioritize privacy; ensure your bathrooms have stall doors, showers have curtains, etc.
 
-## What are ways Parks and Rec pros can promote inclusive park programming?
+## What are ways parks and rec pros can promote inclusive park programming?
 
 * Offer co-ed and non-gendered sports.
 * Create transgender-focused programming to help these visitors learn athletic skills that were not a part of their birth-gender upbringing.
