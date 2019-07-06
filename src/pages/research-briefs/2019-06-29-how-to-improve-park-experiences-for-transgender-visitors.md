@@ -5,6 +5,7 @@ date: 2019-07-02T15:04:10.000Z
 author: Ryan McKnight
 label: "Research Brief"
 featuredpost: false
+featured: "/img/locker-room.jpg"
 image: "/img/locker-room.jpg"
 description: "Everyone should feel comfortable at the park. What are some practical ways you can make that happen?"
 tags:

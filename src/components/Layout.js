@@ -2,16 +2,12 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
-import useSiteMetadata from './SiteMetadata'
 
 const TemplateWrapper = ({ children }) => {
-    const { title, description } = useSiteMetadata()
     return (
         <div className="page-wrapper">
             <Helmet>
             <html lang="en" />
-            <title>{title}</title>
-            <meta name="description" content={description} />
             <link
               rel="apple-touch-icon"
               sizes="180x180"
@@ -36,11 +32,6 @@ const TemplateWrapper = ({ children }) => {
               color="#ff4400"
             />
             <meta name="theme-color" content="#fff" />
-
-            <meta property="og:type" content="business.business" />
-            <meta property="og:title" content={title} />
-            <meta property="og:url" content="/" />
-            <meta property="og:image" content="{title}/img/og-image.jpg" />
             </Helmet>
         <Navbar />
         <div id="wrap">{children}</div>

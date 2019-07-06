@@ -4,6 +4,7 @@ title: "How parks can lead in the experience economy"
 date: 2019-07-02T15:04:10.000Z
 author: Ryan McKnight
 label: "Research Brief"
+featured: "/img/locker-room.jpg"
 featuredpost: false
 image: "/img/experience-economy.jpg"
 description: "Parks and rec pros have always been in the experience game, but now there’s a lot more competition."

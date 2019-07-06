@@ -1,7 +1,7 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import '../styles/css/app.css'
-import logo from '../img/muniparks-logo-white.svg'
 
 import Layout from '../components/Layout'
 import Helmet from 'react-helmet'
@@ -15,7 +15,6 @@ export const IndexPageTemplate = ({
   description,
   intro,
   helmet,
-  logo,
 }) => (
     <section className="hero page-header">
         <div className="overlay-gradient"></div>

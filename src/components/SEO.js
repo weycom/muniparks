@@ -1,141 +1,136 @@
-import path from 'path';
-import React from 'react';
-import Helmet from 'react-helmet';
-import PropTypes from 'prop-types';
-import * as config from '../config';
+import React from 'react'
+import PropTypes from 'prop-types'
+import Helmet from 'react-helmet'
+import { StaticQuery, graphql } from 'gatsby'
 
-
-const getSchemaOrgJSONLD = ({
-  isBlogPost,
-  url,
-  title,
-  image,
-  description,
-  datePublished,
-}) => {
-  const schemaOrgJSONLD = [
-    {
-      '@context': 'http://schema.org',
-      '@type': 'WebSite',
-      url,
-      name: title,
-      alternateName: config.title,
-    },
-  ];
-
-  return isBlogPost
-    ? [
-        ...schemaOrgJSONLD,
-        {
-          '@context': 'https://muniparks.com',
-          '@type': 'BreadcrumbList',
-          itemListElement: [
-            {
-              '@type': 'ListItem',
-              position: 1,
-              item: {
-                '@id': url,
-                name: title,
-                image,
-              },
-            },
-          ],
-        },
-        {
-          '@context': 'https://muniparks.com',
-          '@type': 'BlogPosting',
-          url,
-          name: title,
-          alternateName: config.title,
-          headline: title,
-          image: {
-            '@type': 'ImageObject',
-            url: image,
-          },
-          description,
-          author: {
-            '@type': 'Person',
-            name: 'Muniparks',
-          },
-          publisher: {
-            '@type': 'Organization',
-            url: 'https://muniparks.com',
-            logo: config.logo,
-            name: 'Muniparks',
-          },
-          mainEntityOfPage: {
-            '@type': 'WebSite',
-            '@id': config.url,
-          },
-          datePublished,
-        },
-      ]
-    : schemaOrgJSONLD;
-};
-
-const SEO = ({ postData, postImage, isBlogPost }) => {
-  const postMeta = postData || {};
-
-  const title = postMeta.title || config.title;
-  const description =
-    postMeta.description || postData.excerpt || config.description;
-  const image = `${config.url}${postImage}` || config.image;
-  const slug = postMeta.slug;
-  const url = postMeta.slug
-    ? `${config.url}${postMeta.slug}`
-    : config.url;
-  const datePublished = isBlogPost ? postMeta.date : false;
-
-  const schemaOrgJSONLD = getSchemaOrgJSONLD({
-    isBlogPost,
-    url,
-    title,
-    image,
-    description,
-    datePublished,
-  });
-  
+function SEO({ description, lang, image, meta, keywords, title, pathname }) {
   return (
-    <Helmet>
-      {/* General tags */}
-      <meta name="description" content={description} />
-      <meta name="image" content={image} />
-
-      {/* Schema.org tags */}
-      <script type="application/ld+json">
-        {JSON.stringify(schemaOrgJSONLD)}
-      </script>
-
-      {/* OpenGraph tags */}
-      <meta property="og:url" content={url} />
-      {isBlogPost ? <meta property="og:type" content="article" /> : null}
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
-      <meta property="og:image" content={image} />
-
-      {/* Twitter Card tags */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:creator" content={config.twitter} />
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={image} />
-    </Helmet>
-  );
-};
-
-SEO.propTypes = {
-  isBlogPost: PropTypes.bool,
-  postData: PropTypes.shape({
-    frontmatter: PropTypes.any,
-    excerpt: PropTypes.any,
-  }).isRequired,
-  image: PropTypes.string,
-  postImage: PropTypes.string,
-};
+    <StaticQuery
+      query={detailsQuery}
+      render={data => {
+        const metaDescription =
+          description || data.site.siteMetadata.description
+        const metaImage = image && image.src ? `${data.site.siteMetadata.siteUrl}${image.src}` : null
+        const metaUrl = `${data.site.siteMetadata.siteUrl}${pathname}`
+        return (
+          <Helmet
+            htmlAttributes={{
+              lang,
+            }}
+            title={title}
+            titleTemplate={`%s | ${data.site.siteMetadata.title}`}
+            meta={[
+              {
+                name: `description`,
+                content: metaDescription,
+              },
+              {
+                property: `og:title`,
+                content: title,
+              },
+              {
+                property: `og:url`,
+                content: metaUrl,
+              },
+              {
+                property: `og:description`,
+                content: metaDescription,
+              },
+              {
+                property: `og:type`,
+                content: `website`,
+              },
+              {
+                name: `twitter:creator`,
+                content: `@${data.site.siteMetadata.social.twitter}`,
+              },
+              {
+                name: `twitter:title`,
+                content: title,
+              },
+              {
+                name: `twitter:description`,
+                content: metaDescription,
+              },
+              {
+                name: 'google-site-verification',
+                content: 'QlRmuLQWttdkbKlZ0ZwIBX3xv0M8ouqTW3wE2Eg_jKI'
+              }
+            ]
+              .concat(metaImage ? [
+                {
+                  property: `og:image`,
+                  content: metaImage
+                },
+                {
+                  property: `og:image:alt`,
+                  content: title,
+                },
+                {
+                  property: 'og:image:width',
+                  content: image.width
+                },
+                {
+                  property: 'og:image:height',
+                  content: image.height
+                },
+                {
+                  name: `twitter:card`,
+                  content: `summary_large_image`,
+                }
+              ] : [
+                {
+                  name: `twitter:card`,
+                  content: `summary`,
+                },
+              ])
+              .concat(
+                keywords.length > 0
+                  ? {
+                      name: `keywords`,
+                      content: keywords.join(`, `),
+                    }
+                  : []
+              )
+              .concat(meta)}
+          />
+        )
+      }}
+    />
+  )
+}
 
 SEO.defaultProps = {
-  isBlogPost: false,
-  postImage: null,
-};
+  lang: `en`,
+  meta: [],
+  keywords: [],
+  pathname: ``
+}
 
-export default SEO;
+SEO.propTypes = {
+  description: PropTypes.string,
+  lang: PropTypes.string,
+  image: PropTypes.object,
+  meta: PropTypes.array,
+  keywords: PropTypes.arrayOf(PropTypes.string),
+  pathname: PropTypes.string,
+  title: PropTypes.string.isRequired
+}
+
+export default SEO
+
+const detailsQuery = graphql`
+  query DefaultSEOQuery {
+    site {
+      siteMetadata {
+        title
+        siteUrl
+        description
+        author
+        social {
+          twitter
+        }
+      }
+    }
+  }
+`

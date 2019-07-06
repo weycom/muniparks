@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
-import SEO from '../components/SEO';
+import SEO from '../components/SEO'
 
 export const BlogPostTemplate = ({
     content,
@@ -12,17 +12,18 @@ export const BlogPostTemplate = ({
     description,
     tags,
     title,
-    helmet,
+    label,
+    author,
     date,
     image,
-    label,
-    author
+    featured,
+    helmet
 }) => {
     const PostContent = contentComponent || Content
 
     return (
-        <Layout>
         <section className="section">
+            <SEO title={title} description={description} image={image}/>
             {helmet || ''}
             <article className="article">
                 <div className="article-header-wrapper">
@@ -34,59 +35,45 @@ export const BlogPostTemplate = ({
                     By {author} | <time datetime="{date}">{date}</time>
                 </cite>
                 <PostContent content={content} />
-                {/*
-                {tags && tags.length ? (
-                    <div style={{ marginTop: `4rem` }}>
-                        <h4>Tags</h4>
-                        <ul className="taglist">
-                        {tags.map(tag => (
-                            <li key={tag + `tag`}>
-                                <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                            </li>
-                        ))}
-                        </ul>
-                    </div>
-                ) : null}
-                */}
             </article>
         </section>
-        </Layout>
     )
 }
 
 BlogPostTemplate.propTypes = {
-    content: PropTypes.string.isRequired,
-    contentComponent: PropTypes.func,
-    description: PropTypes.string,
-    title: PropTypes.string,
-    helmet: PropTypes.instanceOf(Helmet),
+  content: PropTypes.node.isRequired,
+  contentComponent: PropTypes.func,
+  description: PropTypes.string,
+  title: PropTypes.string,
+  helmet: PropTypes.object,
 }
 
 const BlogPost = ({ data }) => {
-     let { markdownRemark: post } = data;
+  const { markdownRemark: post } = data
 
-    post = Object.assign({}, post, post.fields, post.frontmatter)
-
-    return (
-        <BlogPostTemplate
-            content={post.html}
-            contentComponent={HTMLContent}
-            description={post.description}
-            helmet={
-                <SEO
-                    isBlogPost={true}
-                    postData={post}
-                    postImage={post.image}
-                />
-            }
-            tags={post.tags}
-            title={post.title}
-            date={post.date}
-            image={post.image}
-            label={post.label}
-            author={post.author}
-        />
-    )
+  return (
+    <Layout>
+      <BlogPostTemplate
+        content={post.html}
+        contentComponent={HTMLContent}
+        description={post.frontmatter.description}
+        label={post.frontmatter.label}
+        date={post.frontmatter.date}
+        helmet={
+          <Helmet titleTemplate="%s | Muniparks">
+            <title>{`${post.frontmatter.title}`}</title>
+            <meta
+              name="description"
+              content={`${post.frontmatter.description}`}
+            />
+          </Helmet>
+        }
+        tags={post.frontmatter.tags}
+        title={post.frontmatter.title}
+        author={post.frontmatter.author}
+      />
+    </Layout>
+  )
 }
 
 BlogPost.propTypes = {
@@ -102,25 +89,21 @@ export const pageQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       id
       html
-      fields {
-        slug
-      }
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
-        title
-        description
-        tags
-        image {
-          childImageSharp{
-            fluid(maxWidth: 1500) {
-              ...GatsbyImageSharpFluid
-            }
-            resize(width: 900, quality: 90) {
+        image: featured {
+          childImageSharp {
+            resize(width: 1200) {
               src
+              height
+              width
             }
           }
         }
-        label        
+        title
+        label
+        description
+        tags
         author
       }
     }

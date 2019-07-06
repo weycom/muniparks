@@ -1,12 +1,20 @@
 var proxy = require('http-proxy-middleware')
 
+const siteUrl = process.env.URL || process.env.DEPLOY_URL || `https://muniparks.com`
+
 module.exports = {
     siteMetadata: {
+        siteUrl,
         title: 'Muniparks',
+        author: 'muniparks',
         description:'Join the community building the future of US parks and recreation.',
-        twitter: 'https://twitter.com/muniparks',
-        url: 'https://muniparks.com',
-  },
+        keywords: 'parks',
+        social: {
+          twitter: 'muniparks',
+          facebook: 'muniparks',
+          youtube: 'muniparks',
+        },
+    },
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
